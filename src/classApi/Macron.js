@@ -1,8 +1,7 @@
 
-class Macron {
+export default class Macron {
   
-  constructor(reducer) {
-    this.reducer = reducer;
+  constructor() {
     this.URL = 'http://macronfact.antonin-dev.fr/factjson';
   }
 
@@ -31,5 +30,9 @@ class Macron {
     }
     //return data into an array of json with image and text
     return cardListArray;
+  }
+
+  getBannerImage() {
+    return "https://images.rtl.fr/~r/880v587/rtl/www/1399235-000-96r782.jpg";
   }
 }

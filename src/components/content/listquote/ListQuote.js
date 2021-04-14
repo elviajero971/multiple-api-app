@@ -2,36 +2,32 @@ import React, {useState, useEffect} from "react";
 import {useLocation} from "react-router-dom";
 import "./ListQuote.scss";
 import Quote from "./quote/Quote";
-const ListQuote = (props) => {
-  const location = useLocation();
-  const loc = location.pathname;
-  const url = `http://macronfact.antonin-dev.fr/factjson${loc}`;
+import useMyContext from "../../../reducer/MyContext";
 
-  const [listQuote, setListQuote] = useState();
-  const linkAuthorArray = [];
+const ListQuote = (props) => {
+  const [reducerState, reducerAction] = useMyContext();
+
+  const cardDataArray = reducerState.cardList;
 
   useEffect(() => {
-    const asyncFunctionListQuote = async() => {
-      try {
-        const dataListQuote = await fetch(url);
-        const jsonDataListQuote = await dataListQuote.json();
-        const jsonData = jsonDataListQuote.data;
-        jsonData.forEach(value => {
-          linkAuthorArray.push(
-            <Quote data={value} />
-          );
-        });
-      } catch (exception) {
-        linkAuthorArray.push("Error");
-      }
-      setListQuote(linkAuthorArray);
-    };
-    asyncFunctionListQuote();
-  }, [location]);
+    console.log(reducerState.cardList);
+    reducerAction({
+      type: "getCardList",
+      apiType: reducerState.apiType
+    });
+  }, [reducerState.apiType]);
+
+  const array=[];
+  cardDataArray.forEach(value => {
+    array.push(
+      <Quote data={value} />
+    );
+  });
+  
   return (
     <div className="display-quote">
       <div className="scroll">
-        {listQuote}
+        {array}
       </div>
     </div>
   );

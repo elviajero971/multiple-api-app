@@ -115,10 +115,14 @@
           flex-direction:column;
           overflow-y: hidden;
           position:relative;
+          a{
+            text-decoration:none;
+            color:$primaryColor;
+          }
 
           .item{
             cursor: pointer;
-            color:$primaryColor;
+            
             align-items: center;
             justify-content: center;
             height: 40px;
@@ -127,7 +131,7 @@
           >.item{
             height:100%;
             width:100%;
-            font-size: 3vw;
+            font-size: 2vw;
           }
           &:after{
             content:'';

@@ -5,16 +5,12 @@ const Quote = (props) => {
     <div className="quote">
       <div className="img">
         <img
-          alt={props.data.auteur}
+          alt={props.data.text}
           src={props.data.img}
         />
       </div>
       <div className="content-quote">
-        <div className="quote-text">
-          <p className="quote-text-value">
-            {props.data.auteur}
-          </p>
-        </div>
+        {props.data.text}
       </div>
     </div>
   );

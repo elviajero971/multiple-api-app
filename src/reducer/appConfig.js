@@ -1,14 +1,25 @@
 import {useReducer} from "react";
-
+import Macron from "../classApi/Macron";
+import BreakingBad from "../classApi/BreakingBad";
+import Lost from "../classApi/Lost";
+const lostLib = new Lost();
+const macronLib = new Macron();
+const breakingbadLib = new BreakingBad();
 const initialValue = {
-  menuList: undefined,
-  viewList: []
+  cardList: [],
+  apiType: "macron",
+  setBannerImage: "https://images.rtl.fr/~r/880v587/rtl/www/1399235-000-96r782.jpg"
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "setCardList":
-      return {...state, menuList: action.cards};
+      return {...state, cardList: action.cards};
+    case "setApiType":
+      console.log("setApiType", state.apiType, action.apiType);
+      return {...state, apiType: action.apiType};
+    case "setBannerImage":
+      return {...state, setBannerImage: action.bannerImage}
     default:
       return state;
   }
@@ -17,15 +28,35 @@ const reducer = (state, action) => {
 const middleware = (dispatch) => (action) => {
   switch (action.type) {
     case "getCardList":
-      fetch(action.url).then(
-        data => data.json()
-      ).then(
-        jsonData => dispatch({type: "setCardList", cards: jsonData.amiibo})
-      ).catch(
-        () => dispatch({type: "resetView"})
-      )
+      if (action.apiType === "macron") {
+        macronLib.getCardList().then(
+          (data) => {
+            dispatch({type: "setCardList", cards: data})
+          }
+        );
+      }else if (action.apiType === "breakingbad") {
+        breakingbadLib.getCardList().then(
+          (data) => {
+            dispatch({type: "setCardList", cards: data})
+          }
+        );
+      }else if (action.apiType === "lost") {
+        lostLib.getCardList().then(
+          (data) => {
+            dispatch({type: "setCardList", cards: data})
+          }
+        );
+      }
+    case "getCardList":  
+      if (action.apiType === "macron") {
+        dispatch({type: "setBannerImage", bannerImage: macronLib.getBannerImage()});
+      }else if (action.apiType === "breakingbad") {
+        dispatch({type: "setBannerImage", bannerImage: breakingbadLib.getBannerImage()});
+
+      }else if (action.apiType === "lost") {
+        dispatch({type: "setBannerImage", bannerImage: lostLib.getBannerImage()});
+      }
       break;
-    
     default:
       dispatch(action);
       break;
