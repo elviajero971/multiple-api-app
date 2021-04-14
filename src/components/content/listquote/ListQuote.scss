@@ -1,0 +1,40 @@
+@import "../../../scss/theme";
+@import "../../../scss/layout";
+
+.display-quote{
+  width: 100%;
+  flex-direction: column;
+  .scroll{
+    padding: 0;
+    padding-top: $paddingSimple;
+    padding-bottom: $paddingSimple;
+  }
+}
+
+// css display tablet
+
+@media (min-width: $breakpoint-mobile) {
+  .display-quote{
+    .scroll{
+      height: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+// css display desktop
+
+@media (min-width: $breakpoint-tablet) {
+  .display-quote{
+    overflow-y: auto;
+    width: 49%;
+    height: $height-display-quote-desktop;
+    @include icon-desktop;
+    .scroll{
+      padding: 0;
+      height: auto;
+    }
+  }
+}

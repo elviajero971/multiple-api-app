@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "./eslintrc_es6",
+    "./eslintrc_react",
+  ],
+  "plugins": ["react"]
+}

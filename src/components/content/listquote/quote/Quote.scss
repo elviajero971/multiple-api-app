@@ -1,0 +1,85 @@
+@import "../../../../scss/theme";
+@import "../../../../scss/layout";
+
+.quote{
+  border: $simpleBorder;
+  width: 100%;
+  height: 200px;
+  flex: 1;
+  .img{
+    width: 200px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit:cover;
+    }
+  }
+  .content-quote{
+    padding: $paddingSimple;
+    flex: 1;
+    background-color: $lightGrey;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    .quote-author{
+      display: flex;
+      align-items: center;
+      @include icon-mobile;
+      .quote-author-value{
+        padding-left: $paddingDouble;
+      }
+    }
+    .quote-date{
+      display: flex;
+      align-items: center;
+      i{
+        color: $secondaryColor;
+      }
+      .quote-date-value{
+        padding-left: $paddingDouble;
+      }
+    }
+  }
+}
+
+// css display tablet
+
+@media (min-width: $breakpoint-mobile) { 
+  .quote{
+    flex: none;
+    width: 49%;
+    .img{
+      width: 20vw;
+    }
+  }
+}
+
+// css display desktop
+
+@media (min-width: $breakpoint-tablet) {
+  .quote{
+    width: 100%;
+    .img{
+      width: 300px;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+      }
+    }
+    .content-quote{
+      padding: $paddingDouble;
+      flex: 1;
+      background-color: $lightGrey;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+}

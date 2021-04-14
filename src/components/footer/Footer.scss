@@ -1,0 +1,29 @@
+@import "../../scss/theme";
+@import "../../scss/layout";
+@import "../../scss/animationBtnNavBar";
+
+
+.footer {
+  background-color: $secondaryColor;
+  height: $footer-height;
+  .footer-content{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    p{
+      font-size: 4vw;
+      color: $lightGrey;
+    }
+  }   
+}
+
+@media (min-width: $breakpoint-mobile) {
+  .footer {
+    .footer-content{
+      p{
+        font-size: 1.5vw;
+      }
+    }   
+  }
+}

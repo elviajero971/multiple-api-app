@@ -1,0 +1,54 @@
+$primaryColor: rgb(255, 64, 0);
+$secondaryColor: rgb(12 , 24, 54);
+$lightColor: rgb(250, 170, 141);
+$lightGrey: rgb(254, 239, 221);
+$darkColor: rgb(18, 18, 19);
+$darkColorOpacity: rgba($darkColor, .7);
+
+
+$simpleBorder: solid 1px $primaryColor;
+$doubleBorder: solid 2px $primaryColor;
+
+$paddingSimple: 10px;
+$paddingDouble: 20px;
+
+$round-size-small: 10px;
+$round-size-big: 20px;
+
+@mixin fontSize-mobile {
+  font-size: 4vw;
+}
+
+@mixin fontSize-tablet {
+  font-size: 1.5vw;
+}
+
+@mixin fontSize-desktop {
+  font-size: .8vw;
+}
+
+@mixin icon-mobile {
+  i{
+    color: $secondaryColor;
+    .fa-2x {
+      font-size: 6vw;
+    }
+  }
+  
+}
+
+@mixin icon-tablet {
+  i{
+    color: $secondaryColor;
+    .fa-2x {
+      font-size: 6vw;
+    }
+  }
+}
+
+@mixin icon-desktop {
+  color: $secondaryColor;
+  .fa-2x {
+    font-size: 3vw;
+  }
+}

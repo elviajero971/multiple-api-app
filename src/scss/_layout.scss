@@ -1,0 +1,11 @@
+$breakpoint-tablet: 1000px;
+
+$breakpoint-mobile: 700px;
+
+$header-height: 80px;
+$footer-height: 40px;
+$variable: 180px;
+$height-banner-desktop: calc(100vh - #{$header-height} - #{$footer-height});
+
+$height-display-quote-desktop: calc(100vh - #{$header-height} - #{$footer-height};
+$padding-top-content-desktop: $header-height+$paddingSimple;

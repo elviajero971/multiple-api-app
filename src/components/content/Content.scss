@@ -1,0 +1,46 @@
+@import "../../scss/theme";
+@import "../../scss/layout";
+@import "../../scss/animationBtnNavBar";
+
+// css display mobile
+
+.content{
+  overflow-y: auto;
+  background-color: $lightColor;
+  .scroll{
+    height: auto;
+    padding: $paddingSimple;
+    flex-direction: column;
+  }
+}
+
+// css display tablet
+
+@media (min-width: $breakpoint-mobile) {
+  .content{
+    flex:1;
+    .scroll{
+      padding: 0;
+      padding-top: $paddingSimple;
+      padding-bottom: $paddingSimple;
+      height: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+// css display desktop
+
+@media (min-width: $breakpoint-tablet) {
+  .content{
+    justify-content: space-around;
+    .scroll{
+      padding:0;
+      height:100%;
+    }
+  }
+}
+
+

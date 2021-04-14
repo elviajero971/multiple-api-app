@@ -1,0 +1,234 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "no-template-curly-in-string": "error",
+    "spaced-comment": "off",
+    "quotes": ["error", "double"],
+
+    # Unexpected use of '|='
+    # Unexpected use of '&='
+    # Unexpected use of '~'
+    # Unexpected use of '&'
+    "no-bitwise": "off",
+
+    # Unexpected console statement
+    "no-console": "warn",
+
+    # Unexpected alert
+    "no-alert": "error",
+
+    # Block must not be padded by blank lines
+    "padded-blocks": ["error", "never"],
+
+    # Unexpected space(s) after '{'
+    # Unexpected space(s) before '}'
+    "block-spacing": ["error", "never"],
+
+    # Unexpected var, use let or const instead
+    "no-var": "error",
+
+    # 'variableName' is never reassigned. Use 'const' instead
+    "prefer-const": "error",
+
+    # Unexpected unnamed function
+    "func-names": ["error", "always"],
+
+    # Expected '===' and instead saw '=='
+    "eqeqeq": ["error", "always"],
+
+    # All 'var' declarations must be at the top of the function scope
+    "vars-on-top": "error",
+
+    # Unexpected string concatenation
+    "prefer-template": "error",
+
+    # 'variable' is not defined
+    "no-undef": "error",
+
+    # Operator '/' must be spaced
+    # Operator '*' must be spaced
+    # Operator '+' must be spaced
+    "space-infix-ops": "error",
+
+    # Unary operator '++' used
+    "no-plusplus": "off",
+
+    # Unexpected function expression
+    # force use of '() => {}' template
+    "prefer-arrow-callback": "error",
+
+    # This line has a length of 158. Maximum allowed is 150
+    "max-len": ["error", { "code": 150, "ignoreComments": true }],
+
+    # Missing space before value for key 'keyName'
+    "key-spacing": ["error", { "beforeColon": false }],
+
+    # Assignment to function parameter 'parameterName'
+    "no-param-reassign": "error",
+
+    # Unexpected dangling '_' in 'variableName'
+    "no-underscore-dangle": "error",
+
+    # There should be no space after '{'
+    # There should be no space before '}'
+    "object-curly-spacing": ["error", "never"],
+
+    # Missing radix parameter
+    "radix": ["error", "as-needed"],
+
+    # Missing trailing comma
+    "comma-dangle": ["error", "never"],
+
+    # Trailing spaces not allowed
+    "no-trailing-spaces": "error",
+
+    # Expected a line break after this opening brace
+    "object-curly-newline": ["error", { "multiline": true }],
+
+    # Expected property shorthand
+    "object-shorthand": ["error"],
+
+    # Object properties must go on a new line if they aren't all on the same line
+    "object-property-newline": "off",
+
+    # Use array destructuring
+    "prefer-destructuring": ["error"],
+
+    # Split 'var' declarations into multiple statements
+    "one-var": ["error", "never"],
+
+    # Expected variable declaration to be on a new line
+    "one-var-declaration-per-line": ["error", "initializations"],
+
+    # Expected space(s) before "keyword"
+    # Expected space(s) after "keyword"
+    "keyword-spacing": ["error"],
+
+    # Multiple spaces found before 'element'
+    "no-multi-spaces": "error",
+
+    # ',' should be placed last
+    "comma-style": ["error", "last"],
+
+    # A space is required after ','
+    "comma-spacing": ["error"],
+
+    # Missing semicolon
+    "semi": ["error"],
+
+    # Unnecessary semicolon
+    "no-extra-semi": ["error"],
+
+    # Expected indentation of X spaces but found Y
+    "no-tabs": ["error"],
+    "no-mixed-spaces-and-tabs": "error",
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+
+    # Expected blank line between class members
+    "lines-between-class-members": ["error", "always"],
+
+    # 'variable' is already declared in the upper scope
+    "no-shadow": ["error"],
+
+    # 'variableName' is assigned a value but never used
+    "no-unused-vars": ["error"],
+
+    # 'variableName' is already defined
+    "no-redeclare": ["error"],
+
+    # Closing curly brace does not appear on the same line as the subsequent block
+    "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+
+    # Missing space before function parentheses
+    "space-before-function-paren": ["error", "never"],
+
+    # 'variableName' was used before it was defined
+    "no-use-before-define": ["error"],
+
+    # Naming Conventions
+    # Class name `<className>` must match one of the following formats: PascalCase
+    # Variable name `<variableName>` must match one of the following formats: camelCase
+    "camelcase": ["error"],
+    "new-cap": "off",
+    # "@typescript-eslint/naming-convention": [
+    #   "error",
+    #   // Allow camelCase variables (23.2), PascalCase variables (23.8), and UPPER_CASE variables (23.10)
+    #   {
+    #     selector: 'variable',
+    #     format: ['camelCase'],
+    #   },
+    #   // Allow camelCase functions (23.2), and PascalCase functions (23.8)
+    #   {
+    #     selector: 'function',
+    #     format: ['camelCase'],
+    #   },
+    #   // Airbnb recommends PascalCase for classes (23.3), and although Airbnb does not make TypeScript recommendations, we are assuming this rule would similarly apply to anything "type like", including interfaces, type aliases, and enums
+    #   {
+    #     selector: 'typeLike',
+    #     format: ['PascalCase'],
+    #   },
+    # ],
+
+    //
+    // JSDOC
+    //
+    # Missing JSDoc comment
+    "require-jsdoc": ["warn", {
+        "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true,
+            "ArrowFunctionExpression": true,
+            "FunctionExpression": true
+        }
+    }],
+    # Missing JSDoc @return for function
+    # Missing JSDoc for parameter 'sX'
+    valid-jsdoc: ["error", {"requireReturn": false}],
+
+    //
+    // Must speak about that
+    //
+
+    # 'variableName' used outside of binding context
+    "block-scoped-var": "warn",
+
+    # ["ArrayStringAttributeName"] is better written in dot notation
+    "dot-notation": "warn",
+    # "@typescript-eslint/dot-notation": "error",
+
+    # Unexpected mix of '/' and '*'
+    # Unexpected mix of '|' and '<<'
+    "no-mixed-operators": "off",
+
+    #
+    "space-before-blocks": ["error"],
+
+    #
+    "arrow-spacing": ["error"],
+
+    #
+    "id-length": [
+      "error",
+      {
+        "min": 3,
+        "exceptions": ["x", "y", "z", "i", "j", "id", "to", "ns", "en", "fr"]
+      }
+    ],
+
+    #
+    "array-bracket-newline": ["error", "consistent"]
+  }
+}

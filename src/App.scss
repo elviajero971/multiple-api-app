@@ -1,0 +1,26 @@
+@import "./scss/theme";
+@import "./scss/layout";
+@import "./scss/animationBtnNavBar";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body * {
+  box-sizing: border-box;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+// css display mobile
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
