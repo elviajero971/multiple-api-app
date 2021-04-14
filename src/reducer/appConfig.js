@@ -1,27 +1,41 @@
-import {useReducer} from 'react';
-
-const baseURL = "http://macronfact.antonin-dev.fr/factjson/";
-const config = [
-  {
-    name: "author",
-    url: "list",
-    viewUrl: `${baseURL}list`,
-    navBarData: []
-  }
-];
+import {useReducer} from "react";
 
 const initialValue = {
-  config,
-  baseURL
+  menuList: undefined,
+  viewList: []
 };
 
-const reducer = (state) => {
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "setCardList":
+      return {...state, menuList: action.cards};
+    default:
       return state;
+  }
 }
 
-const AppConfigReducer = () => {
-  const [reducerState, reducerAction] = useReducer(reducer, initialValue);
-  return [reducerState, reducerAction];
+const middleware = (dispatch) => (action) => {
+  switch (action.type) {
+    case "getCardList":
+      fetch(action.url).then(
+        data => data.json()
+      ).then(
+        jsonData => dispatch({type: "setCardList", cards: jsonData.amiibo})
+      ).catch(
+        () => dispatch({type: "resetView"})
+      )
+      break;
+    
+    default:
+      dispatch(action);
+      break;
+  }
 }
 
-export default AppConfigReducer;
+const AppNetworkReducer = () => {
+  const [networkState, networkAction_] = useReducer(reducer, initialValue);
+  const networkAction = middleware(networkAction_);
+  return [networkState, networkAction];
+}
+
+export default AppNetworkReducer;
