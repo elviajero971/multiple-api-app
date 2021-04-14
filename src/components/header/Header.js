@@ -55,7 +55,7 @@ const Header = () => {
               className="item"
               onClick={setMacronApiFunction}
             >
-              <Link to="/all">
+              <Link to="/macron">
                 {"Macron"}
               </Link>
             </div>
@@ -68,7 +68,7 @@ const Header = () => {
               className="item"
               onClick={setbreakingBadApiFunction}
             >
-              <Link to="/all">
+              <Link to="/breakingbad">
                 {"Breaking Bad"}
               </Link>
             </div>
@@ -81,7 +81,7 @@ const Header = () => {
               className="item"
               onClick={setLostApiFunction}
             >
-              <Link to="/all">
+              <Link to="/lost">
               {"Lost"}
               </Link>
             </div>
@@ -94,7 +94,9 @@ const Header = () => {
       <div className={openBurger === true ? "mobile active" : "mobile"}>
         <div className="item-mobile" onClick={openAuthorMobileFunction}>
           <div className={openAuthorMobile === true ? "author-item-mobile hide" : "author-item-mobile"}>
-            {"Macron"}
+            <Link to="/macron">
+              {"Macron"}
+            </Link>
           </div>
           <div className={openAuthorMobile === true ? "author-list-mobile" : "author-list-mobile"}>
             Menu Element
@@ -102,7 +104,9 @@ const Header = () => {
         </div>
         <div className="item-mobile" onClick={setbreakingBadApiFunction}>
           <div className={openAuthorMobile === true ? "author-item-mobile hide" : "author-item-mobile"}>
-            {"Breaking Bad"}
+            <Link to="/breakingbad">
+              {"Breaking Bad"}
+            </Link>
           </div>
           <div className={openAuthorMobile === true ? "author-list-mobile" : "author-list-mobile"}>
             Menu Element
@@ -110,7 +114,9 @@ const Header = () => {
         </div>
         <div className="item-mobile" onClick={setLostApiFunction}>
           <div className={openAuthorMobile === true ? "author-item-mobile hide" : "author-item-mobile"}>
-            {"Lost"}
+            <Link to="/lost">
+              {"Lost"}
+            </Link>
           </div>
           <div className={openAuthorMobile === true ? "author-list-mobile" : "author-list-mobile"}>
             Menu Element
