@@ -6,6 +6,11 @@ body {
   width: 100%;
 }
 
+html script,
+body script {
+  display: none;
+}
+
 body * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -16,18 +21,12 @@ body * {
   padding: 0;
 }
 
-.App {
+.app {
   width: 100vw;
   height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-@media (min-width: 700px) {
-  .fa-2x {
-    font-size: 3.5vw;
-  }
 }
 /*# sourceMappingURL=App.css.map */

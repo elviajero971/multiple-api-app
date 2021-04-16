@@ -2,6 +2,9 @@ import React, {useState, useEffect} from "react";
 import "./Header.scss";
 import {Link} from "react-router-dom";
 import useMyContext from "../../reducer/MyContext";
+import SwitchDarkMode from "react-switch";
+import moon from "./moon.svg";
+import sun from "./sun.svg";
 const Header = () => {
 
   const [reducerState, reducerAction] = useMyContext();
@@ -33,8 +36,15 @@ const Header = () => {
 
   const setLostApiFunction = () => {
     reducerAction({type: "setApiType", apiType: "lost"});
+    reducerAction({type: "set"})
   }
-  
+
+  const switchChangeColor = (checked) => {
+    reducerAction({
+      type: "setViewMode",
+      payload: checked ? "lightMode" : "darkMode"
+    });
+  }
 
   return (
     <div className="header">
@@ -84,6 +94,25 @@ const Header = () => {
               <Link to="/lost">
               {"Lost"}
               </Link>
+            </div>
+            <div className="list-item">
+              Menu Element
+            </div>
+          </div>
+          <div class="container">
+            <div
+              className="item"
+            >
+              <div className="switch">
+                <SwitchDarkMode 
+                  checked={reducerState.viewMode === "lightMode"}
+                  onChange={switchChangeColor}
+                  uncheckedHandleIcon={
+                    <img src={moon}/>
+                  }
+                  checkedHandleIcon={<img src={sun}/>}
+                />
+              </div>
             </div>
             <div className="list-item">
               Menu Element

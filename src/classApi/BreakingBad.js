@@ -25,9 +25,7 @@ export default class BreakingBad {
 
     
     const dataJson = await data.json();
-    console.log("dataJson value Breakingbad",dataJson);
     const characters = dataJson;
-    console.log(characters);
     for(const value of characters) {
       cardListArray.push({img: value.img, text: value.name});
     }

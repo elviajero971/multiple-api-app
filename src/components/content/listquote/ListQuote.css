@@ -1,27 +1,19 @@
-.content {
-  overflow-y: auto;
-  background-color: #faaa8d;
-}
-
-.content .scroll {
-  height: auto;
-  padding: 10px;
+.display-quote {
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
+.display-quote .scroll {
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 @media (min-width: 700px) {
-  .content {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
-  .content .scroll {
-    padding: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  .display-quote .scroll {
     height: 100%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -36,13 +28,18 @@
 }
 
 @media (min-width: 1000px) {
-  .content {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+  .display-quote {
+    overflow-y: auto;
+    width: 49%;
+    height: calc(100vh - 80px - 40px);
+    color: #0c1836;
   }
-  .content .scroll {
+  .display-quote .fa-2x {
+    font-size: 3vw;
+  }
+  .display-quote .scroll {
     padding: 0;
-    height: 100%;
+    height: auto;
   }
 }
-/*# sourceMappingURL=Content.css.map */
+/*# sourceMappingURL=ListQuote.css.map */

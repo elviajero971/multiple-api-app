@@ -10,7 +10,6 @@ const ListQuote = (props) => {
   const cardDataArray = reducerState.cardList;
 
   useEffect(() => {
-    console.log(reducerState.cardList);
     reducerAction({
       type: "getCardList",
       apiType: reducerState.apiType

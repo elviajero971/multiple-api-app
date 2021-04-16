@@ -117,12 +117,11 @@
           position:relative;
           a{
             text-decoration:none;
-            color:$primaryColor;
+            color:$textColor;
           }
 
           .item{
             cursor: pointer;
-            
             align-items: center;
             justify-content: center;
             height: 40px;
@@ -132,13 +131,18 @@
             height:100%;
             width:100%;
             font-size: 2vw;
+            >.switch{
+              width: 100%;
+              justify-content: center;
+              align-items: center;
+            }
           }
           &:after{
             content:'';
             display: block;
             width: 10%;
             height: 5px;
-            background: $primaryColor;
+            background: $textColor;
             transition: width .3s;
 
           }
@@ -151,7 +155,7 @@
             width: 100%;
             height: 100%;
             text-decoration: none;
-            color: $primaryColor;
+            color: $textColor;
           }
 
           >.list-item{

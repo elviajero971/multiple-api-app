@@ -14,7 +14,6 @@ export default class BreakingBad {
       menuListArray.push(value);
     }
     //return data into an array of strings
-
     return menuListArray;
   }
 
@@ -23,11 +22,8 @@ export default class BreakingBad {
     const cardListArray = [];
     const data = await fetch(this.URL+'/123/cast');
 
-    
     const dataJson = await data.json();
-    console.log("dataJson value Lost",dataJson);
     const lostActors = dataJson;
-    console.log(lostActors);
     for(const value of lostActors) {
       cardListArray.push({img: value.person.image.medium, text: value.person.name});
     }

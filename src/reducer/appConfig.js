@@ -5,7 +5,9 @@ import Lost from "../classApi/Lost";
 const lostLib = new Lost();
 const macronLib = new Macron();
 const breakingbadLib = new BreakingBad();
+
 const initialValue = {
+  viewMode: "darkMode",
   cardList: [],
   apiType: "macron",
   setBannerImage: "https://images.rtl.fr/~r/880v587/rtl/www/1399235-000-96r782.jpg"
@@ -19,7 +21,10 @@ const reducer = (state, action) => {
       console.log("setApiType", state.apiType, action.apiType);
       return {...state, apiType: action.apiType};
     case "setBannerImage":
-      return {...state, setBannerImage: action.bannerImage}
+      console.log("newImage",action.bannerImage);
+      return {...state, setBannerImage: action.bannerImage};
+    case "setViewMode":
+      return {...state, viewMode: action.payload};
     default:
       return state;
   }
@@ -47,7 +52,8 @@ const middleware = (dispatch) => (action) => {
           }
         );
       }
-    case "getCardList":  
+      break;
+    case "setBannerImage":  
       if (action.apiType === "macron") {
         dispatch({type: "setBannerImage", bannerImage: macronLib.getBannerImage()});
       }else if (action.apiType === "breakingbad") {
@@ -56,7 +62,6 @@ const middleware = (dispatch) => (action) => {
       }else if (action.apiType === "lost") {
         dispatch({type: "setBannerImage", bannerImage: lostLib.getBannerImage()});
       }
-      break;
     default:
       dispatch(action);
       break;
