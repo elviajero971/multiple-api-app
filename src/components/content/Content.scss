@@ -6,11 +6,12 @@
 
 .content{
   overflow-y: auto;
-  background-color: $primaryDarkColor;
+  background-color: $secondaryDarkColor;
   .scroll{
     height: auto;
     padding: $paddingSimple;
     flex-direction: column;
+    width: 100%;
   }
 }
 

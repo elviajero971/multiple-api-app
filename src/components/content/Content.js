@@ -9,7 +9,6 @@ const Content = () => {
   return (
     <div className="content">
       <div className="scroll">
-        <Banner />
         <Switch>
           <Route
             exact
@@ -18,6 +17,7 @@ const Content = () => {
             <HomePage />
           </Route>
           <Route path={location}>
+            <Banner />
             <ListQuote />
           </Route>
         </Switch>

@@ -5,6 +5,8 @@ import useMyContext from "../../reducer/MyContext";
 import SwitchDarkMode from "react-switch";
 import moon from "./moon.svg";
 import sun from "./sun.svg";
+import ClipLoader from "react-spinners/ClipLoader";
+import PropagateLoader from "react-spinners/PropagateLoader";
 const Header = () => {
 
   const [reducerState, reducerAction] = useMyContext();
@@ -41,6 +43,11 @@ const Header = () => {
     reducerAction({type: "setBannerImage", bannerImage: "lost"});
   }
 
+  const setAmiiboApiFunction = () => {
+    reducerAction({type: "setApiType", apiType: "amiibo"});
+    reducerAction({type: "setBannerImage", bannerImage: "amiibo"});
+  }
+
   const switchChangeColor = (checked) => {
     reducerAction({
       type: "setViewMode",
@@ -75,9 +82,11 @@ const Header = () => {
               className="item"
               onClick={setMacronApiFunction}
             >
+              <ClipLoader color={`red`}/>
               <Link to="/macron">
                 {"Macron"}
               </Link>
+
             </div>
             <div className="list-item">
               Menu Element
@@ -88,6 +97,7 @@ const Header = () => {
               className="item"
               onClick={setbreakingBadApiFunction}
             >
+              <ClipLoader color={`red`}/>
               <Link to="/breakingbad">
                 {"Breaking Bad"}
               </Link>
@@ -101,8 +111,23 @@ const Header = () => {
               className="item"
               onClick={setLostApiFunction}
             >
+              <ClipLoader color={`red`}/>
               <Link to="/lost">
               {"Lost"}
+              </Link>
+            </div>
+            <div className="list-item">
+              Menu Element
+            </div>
+          </div>
+          <div className={openAuthorDesktop ? "container" : "container"}>
+            <div
+              className="item"
+              onClick={setAmiiboApiFunction}
+            >
+              <ClipLoader color={`red`}/>
+              <Link to="/amiibo">
+              {"Amiibo"}
               </Link>
             </div>
             <div className="list-item">
@@ -118,9 +143,17 @@ const Header = () => {
                   checked={reducerState.viewMode === "lightMode"}
                   onChange={switchChangeColor}
                   uncheckedHandleIcon={
-                    <img src={moon}/>
+                    <img style={{padding: "3px"}} src={moon}/>
                   }
-                  checkedHandleIcon={<img src={sun}/>}
+                  checkedHandleIcon={<img style={{padding: "3px"}} src={sun}/>}
+                  uncheckedIcon={false}
+                  checkedIcon={false}
+                  width={60}
+                  height={40}
+                  offHandleColor={"#FF5733"}
+                  onHandleColor={"#FF5733"}
+                  offColor={"#FF5733"}
+                  onColor={"#FF5733"}
                 />
               </div>
             </div>

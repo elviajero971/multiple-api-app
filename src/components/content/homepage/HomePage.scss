@@ -2,6 +2,16 @@
 @import "../../../scss/layout";
 
 .homepage{
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
+  background-color: $secondaryDarkColor;
+  .text{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: $textColor;
+  }
 }

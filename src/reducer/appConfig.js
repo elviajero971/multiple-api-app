@@ -2,11 +2,13 @@ import {useReducer} from "react";
 import Macron from "../classApi/Macron";
 import BreakingBad from "../classApi/BreakingBad";
 import Lost from "../classApi/Lost";
+import Amiibo from "../classApi/Amiibo";
 const lostLib = new Lost();
 const macronLib = new Macron();
 const breakingbadLib = new BreakingBad();
-
+const amiiboLib = new Amiibo();
 const initialValue = {
+  loading: "true",
   viewMode: "darkMode",
   cardList: [],
   apiType: "macron",
@@ -20,15 +22,18 @@ const reducer = (state, action) => {
     case "setApiType":
       return {...state, apiType: action.apiType};
     case "setBannerImage":
-      console.log("newImage",action.setBannerImage);
       if (action.bannerImage === "bb") {
         return {...state, bannerImage: breakingbadLib.getBannerImage()};
       }else if (action.bannerImage === "macron") {
         return {...state, bannerImage: macronLib.getBannerImage()};
       }else if (action.bannerImage === "lost") {
         return {...state, bannerImage: lostLib.getBannerImage()};
+      }else if (action.bannerImage === "amiibo") {
+        return {...state, bannerImage: amiiboLib.getBannerImage()};
       }
       return {...state};
+    case "setLoading":
+      return {...state, loading: action.setLoading};
     case "setViewMode":
       return {...state, viewMode: action.payload};
     default:
@@ -45,29 +50,30 @@ const middleware = (dispatch) => (action) => {
             dispatch({type: "setCardList", cards: data})
           }
         );
+        dispatch({type: "setLoading", setLoading: "false"});
       }else if (action.apiType === "breakingbad") {
         breakingbadLib.getCardList().then(
           (data) => {
             dispatch({type: "setCardList", cards: data})
           }
         );
+        dispatch({type: "setLoading", setLoading: "false"});
       }else if (action.apiType === "lost") {
         lostLib.getCardList().then(
           (data) => {
             dispatch({type: "setCardList", cards: data})
           }
         );
+        dispatch({type: "setLoading", setLoading: "false"});
+      }else if (action.apiType === "amiibo") {
+        amiiboLib.getCardList().then(
+          (data) => {
+            dispatch({type: "setCardList", cards: data})
+          }
+        );
+        dispatch({type: "setLoading", setLoading: "false"});
       }
       break;
-    case "setBannerImage":  
-      if (action.apiType === "macron") {
-        dispatch({type: "setBannerImage", bannerImage: macronLib.getBannerImage()});
-      }else if (action.apiType === "breakingbad") {
-        dispatch({type: "setBannerImage", bannerImage: breakingbadLib.getBannerImage()});
-
-      }else if (action.apiType === "lost") {
-        dispatch({type: "setBannerImage", bannerImage: lostLib.getBannerImage()});
-      }
     default:
       dispatch(action);
       break;
