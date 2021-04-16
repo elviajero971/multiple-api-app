@@ -28,15 +28,17 @@ const Header = () => {
 
   const setbreakingBadApiFunction = () => {
     reducerAction({type: "setApiType", apiType: "breakingbad"});
+    reducerAction({type: "setBannerImage", bannerImage: "bb"});
   }
 
   const setMacronApiFunction = () => {
     reducerAction({type: "setApiType", apiType: "macron"});
+    reducerAction({type: "setBannerImage", bannerImage: "macron"});
   }
 
   const setLostApiFunction = () => {
     reducerAction({type: "setApiType", apiType: "lost"});
-    reducerAction({type: "set"})
+    reducerAction({type: "setBannerImage", bannerImage: "lost"});
   }
 
   const switchChangeColor = (checked) => {
@@ -46,8 +48,16 @@ const Header = () => {
     });
   }
 
+  let viewColorDisplay = "header";
+
+  if (reducerState.viewMode === "lightMode") {
+    viewColorDisplay="header viewLightMode";
+  }else {
+    viewColorDisplay="header";
+  }
+
   return (
-    <div className="header">
+    <div className={viewColorDisplay}>
       <div className="desktop">
         <div className="icon">
           <div

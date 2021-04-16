@@ -1,8 +1,18 @@
 import React from "react";
 import "./Footer.scss";
+import useMyContext from "../../reducer/MyContext";
 const Footer = () => {
+  const [reducerState, reducerAction] = useMyContext();
+
+  let viewColorDisplay = "footer";
+
+  if (reducerState.viewMode === "lightMode") {
+    viewColorDisplay="footer viewLightMode";
+  }else {
+    viewColorDisplay="footer";
+  }
   return (
-    <div className="footer">
+    <div className={viewColorDisplay}>
       <div className="footer-content">
         <p>
           {"Macron Fact App 2021 by @elviajero"}

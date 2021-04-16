@@ -10,7 +10,7 @@ const initialValue = {
   viewMode: "darkMode",
   cardList: [],
   apiType: "macron",
-  setBannerImage: "https://images.rtl.fr/~r/880v587/rtl/www/1399235-000-96r782.jpg"
+  bannerImage: "https://images.rtl.fr/~r/880v587/rtl/www/1399235-000-96r782.jpg"
 };
 
 const reducer = (state, action) => {
@@ -18,11 +18,17 @@ const reducer = (state, action) => {
     case "setCardList":
       return {...state, cardList: action.cards};
     case "setApiType":
-      console.log("setApiType", state.apiType, action.apiType);
       return {...state, apiType: action.apiType};
     case "setBannerImage":
-      console.log("newImage",action.bannerImage);
-      return {...state, setBannerImage: action.bannerImage};
+      console.log("newImage",action.setBannerImage);
+      if (action.bannerImage === "bb") {
+        return {...state, bannerImage: breakingbadLib.getBannerImage()};
+      }else if (action.bannerImage === "macron") {
+        return {...state, bannerImage: macronLib.getBannerImage()};
+      }else if (action.bannerImage === "lost") {
+        return {...state, bannerImage: lostLib.getBannerImage()};
+      }
+      return {...state};
     case "setViewMode":
       return {...state, viewMode: action.payload};
     default:

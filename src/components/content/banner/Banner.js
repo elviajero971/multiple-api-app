@@ -1,11 +1,10 @@
 import React from "react";
 import "./Banner.scss";
-import banner from "./banner.jpeg";
 import useMyContext from "../../../reducer/MyContext";
 const Banner = () => {
-  const [reducerState, reducerAction] = useMyContext();
+  const [reducerState] = useMyContext();
 
-  const img = reducerState.setBannerImage;
+  const img = reducerState.bannerImage;
   console.log(img);
   return (
     <div className="banner">

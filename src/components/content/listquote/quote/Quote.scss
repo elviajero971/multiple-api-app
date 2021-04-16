@@ -3,6 +3,8 @@
 
 .quote{
   border: $simpleBorder;
+  color: $textColor;
+  
   width: 100%;
   height: 200px;
   flex: 1;
@@ -20,10 +22,13 @@
   .content-quote{
     padding: $paddingSimple;
     flex: 1;
-    background-color: $lightGrey;
+    background-color: $secondaryDarkColor;
     height: 100%;
     flex-direction: column;
     justify-content: space-around;
+    &.viewLightMode{
+      background-color: $secondaryLightColor;
+    }
     .quote-author{
       display: flex;
       align-items: center;
@@ -36,7 +41,7 @@
       display: flex;
       align-items: center;
       i{
-        color: $secondaryColor;
+        color: $textColor;
       }
       .quote-date-value{
         padding-left: $paddingDouble;
@@ -76,7 +81,7 @@
     .content-quote{
       padding: $paddingDouble;
       flex: 1;
-      background-color: $lightGrey;
+      background-color: $secondaryLightColor;
       height: 100%;
       flex-direction: column;
       justify-content: space-around;

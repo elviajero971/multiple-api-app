@@ -1,10 +1,14 @@
 .header {
-  background-color: #0c1836;
+  background-color: #030d27;
   height: 80px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.header.viewLightMode {
+  background-color: #faaa8d;
 }
 
 .header .desktop {
@@ -106,8 +110,8 @@
       -ms-flex-align: center;
           align-items: center;
   font-size: 4vw;
-  color: #0c1836;
-  background-color: #feefdd;
+  color: #ff4000;
+  background-color: #122146;
   border-bottom: solid 1px #ff4000;
   cursor: pointer;
   text-decoration: none;
@@ -123,7 +127,7 @@
           align-items: center;
   font-size: 4vw;
   border-bottom: solid 1px #ff4000;
-  background-color: #feefdd;
+  background-color: #122146;
   height: 40px;
   width: 100%;
   cursor: pointer;
@@ -145,7 +149,7 @@
 .header .mobile .item-mobile .author-list-mobile a {
   cursor: pointer;
   text-decoration: none;
-  color: #0c1836;
+  color: #ff4000;
 }
 
 .header .mobile .item-mobile .author-list-mobile.show {
@@ -261,7 +265,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background-color: #0c1836;
+    background-color: #122146;
     width: 100%;
   }
   .header .desktop .navbar > .container > .list-item > .item {

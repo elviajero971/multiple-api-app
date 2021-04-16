@@ -1,10 +1,10 @@
 $textColor: rgb(255, 64, 0);
-$secondaryColor: rgb(12 , 24, 54);
-$lightColor: rgb(250, 170, 141);
-$lightGrey: rgb(254, 239, 221);
-$darkColor: rgb(18, 18, 19);
-$darkColorOpacity: rgba($darkColor, .7);
 
+$primaryDarkColor: rgb(3, 13, 39);
+$secondaryDarkColor: rgb(18, 33, 70);
+
+$primaryLightColor: rgb(250, 170, 141);
+$secondaryLightColor: rgb(254, 239, 221);
 
 $simpleBorder: solid 1px $textColor;
 $doubleBorder: solid 2px $textColor;
@@ -29,7 +29,7 @@ $round-size-big: 20px;
 
 @mixin icon-mobile {
   i{
-    color: $secondaryColor;
+    color: $secondaryDarkColor;
     .fa-2x {
       font-size: 6vw;
     }
@@ -39,7 +39,7 @@ $round-size-big: 20px;
 
 @mixin icon-tablet {
   i{
-    color: $secondaryColor;
+    color: $secondaryDarkColor;
     .fa-2x {
       font-size: 6vw;
     }
@@ -47,7 +47,7 @@ $round-size-big: 20px;
 }
 
 @mixin icon-desktop {
-  color: $secondaryColor;
+  color: $secondaryDarkColor;
   .fa-2x {
     font-size: 3vw;
   }

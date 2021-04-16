@@ -1,5 +1,6 @@
 .quote {
   border: solid 1px #ff4000;
+  color: #ff4000;
   width: 100%;
   height: 200px;
   -webkit-box-flex: 1;
@@ -30,7 +31,7 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background-color: #feefdd;
+  background-color: #122146;
   height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -38,6 +39,10 @@
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.quote .content-quote.viewLightMode {
+  background-color: #feefdd;
 }
 
 .quote .content-quote .quote-author {
@@ -50,7 +55,7 @@
 }
 
 .quote .content-quote .quote-author i {
-  color: #0c1836;
+  color: #122146;
 }
 
 .quote .content-quote .quote-author i .fa-2x {
@@ -71,7 +76,7 @@
 }
 
 .quote .content-quote .quote-date i {
-  color: #0c1836;
+  color: #ff4000;
 }
 
 .quote .content-quote .quote-date .quote-date-value {

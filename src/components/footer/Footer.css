@@ -1,6 +1,10 @@
 .footer {
-  background-color: #0c1836;
+  background-color: #030d27;
   height: 40px;
+}
+
+.footer.viewLightMode {
+  background-color: #faaa8d;
 }
 
 .footer .footer-content {
@@ -16,7 +20,7 @@
 
 .footer .footer-content p {
   font-size: 4vw;
-  color: #feefdd;
+  color: #ff4000;
 }
 
 @media (min-width: 700px) {

@@ -3,10 +3,12 @@
 @import "../../scss/animationBtnNavBar";
 
 .header{
-  background-color: $secondaryColor;
+  background-color: $primaryDarkColor;
   height: $header-height;
   flex-direction: column;
-
+  &.viewLightMode{
+    background-color: $primaryLightColor;
+  }
   .desktop{
     padding: $paddingSimple;
     width: 100%;
@@ -33,8 +35,8 @@
       justify-content: center;
       align-items:center;
       @include fontSize-mobile;
-      color: $secondaryColor;
-      background-color: $lightGrey;
+      color: $textColor;
+      background-color: $secondaryDarkColor;
       border-bottom: $simpleBorder;
       cursor: pointer;
       text-decoration: none;
@@ -49,7 +51,7 @@
         align-items:center;
         @include fontSize-mobile;
         border-bottom: $simpleBorder;
-        background-color: $lightGrey;
+        background-color: $secondaryDarkColor;
         height: 40px;
         width: 100%;
         cursor: pointer;
@@ -66,7 +68,7 @@
         a{
           cursor: pointer;
           text-decoration: none;
-          color: $secondaryColor;
+          color: $textColor;
 
         }
         &.show{
@@ -163,7 +165,7 @@
             position:absolute;
             top:100%;
             flex-direction:column;
-            background-color: $secondaryColor;
+            background-color: $secondaryDarkColor;
             width:100%;
             
 
