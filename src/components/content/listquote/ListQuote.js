@@ -8,7 +8,6 @@ const ListQuote = (props) => {
   const [reducerState, reducerAction] = useMyContext();
 
   const cardDataArray = reducerState.cardList;
-
   useEffect(() => {
     reducerAction({
       type: "getCardList",
@@ -22,7 +21,7 @@ const ListQuote = (props) => {
       <Quote data={value} />
     );
   });
-  
+
   return (
     <div className="display-quote">
       <div className="scroll">

@@ -1,6 +1,6 @@
 .content {
   overflow-y: auto;
-  background-color: #030d27;
+  background-color: #122146;
 }
 
 .content .scroll {
@@ -10,6 +10,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
 }
 
 @media (min-width: 700px) {

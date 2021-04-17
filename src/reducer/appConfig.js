@@ -8,7 +8,7 @@ const macronLib = new Macron();
 const breakingbadLib = new BreakingBad();
 const amiiboLib = new Amiibo();
 const initialValue = {
-  loading: "true",
+  loading: true,
   viewMode: "darkMode",
   cardList: [],
   apiType: "macron",
@@ -50,28 +50,24 @@ const middleware = (dispatch) => (action) => {
             dispatch({type: "setCardList", cards: data})
           }
         );
-        dispatch({type: "setLoading", setLoading: "false"});
       }else if (action.apiType === "breakingbad") {
         breakingbadLib.getCardList().then(
           (data) => {
             dispatch({type: "setCardList", cards: data})
           }
         );
-        dispatch({type: "setLoading", setLoading: "false"});
       }else if (action.apiType === "lost") {
         lostLib.getCardList().then(
           (data) => {
             dispatch({type: "setCardList", cards: data})
           }
         );
-        dispatch({type: "setLoading", setLoading: "false"});
       }else if (action.apiType === "amiibo") {
         amiiboLib.getCardList().then(
           (data) => {
             dispatch({type: "setCardList", cards: data})
           }
         );
-        dispatch({type: "setLoading", setLoading: "false"});
       }
       break;
     default:

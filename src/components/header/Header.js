@@ -8,9 +8,8 @@ import sun from "./sun.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import PropagateLoader from "react-spinners/PropagateLoader";
 const Header = () => {
-
+  
   const [reducerState, reducerAction] = useMyContext();
-
 
   const [openBurger, setOpenBurger] = useState(false);
   const openBurgerFunction = () => {
@@ -36,6 +35,7 @@ const Header = () => {
   const setMacronApiFunction = () => {
     reducerAction({type: "setApiType", apiType: "macron"});
     reducerAction({type: "setBannerImage", bannerImage: "macron"});
+    console.log(reducerState.cardList);
   }
 
   const setLostApiFunction = () => {
