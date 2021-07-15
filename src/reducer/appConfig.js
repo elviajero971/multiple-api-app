@@ -18,7 +18,6 @@ const initialValue = {
 let count = 0
 
 const reducer = (state, action) => {
-  let isLoading = false;
   switch (action.type) {
     case "setCardList":
 
