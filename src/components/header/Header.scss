@@ -6,13 +6,15 @@
   background-color: $primaryDarkColor;
   height: $header-height;
   flex-direction: column;
+  border-bottom: none;
   &.viewLightMode{
     background-color: $primaryLightColor;
+    border-bottom: $doubleBorder;
   }
   .desktop{
     padding: $paddingSimple;
     width: 100%;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
 
     .icon{
@@ -22,6 +24,9 @@
     }
     .navbar{
       display: none;
+    }
+    .switch{
+      padding-left: $paddingSimple;
     }
   }
 

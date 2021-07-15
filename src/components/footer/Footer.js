@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.scss";
 import useMyContext from "../../reducer/MyContext";
 const Footer = () => {
-  const [reducerState, reducerAction] = useMyContext();
+  const [reducerState] = useMyContext();
 
   let viewColorDisplay = "footer";
 

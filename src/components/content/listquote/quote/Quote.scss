@@ -4,10 +4,14 @@
 .quote{
   border: $simpleBorder;
   color: $textColor;
-  
+  background-color: $primaryLightColor;
   width: 100%;
   height: 200px;
   flex: 1;
+
+  &.viewLightMode{
+    background-color: $primaryLightColor;
+  }
   .img{
     width: 200px;
     height: 100%;
@@ -26,9 +30,6 @@
     height: 100%;
     flex-direction: column;
     justify-content: space-around;
-    &.viewLightMode{
-      background-color: $secondaryLightColor;
-    }
     .quote-author{
       display: flex;
       align-items: center;
@@ -81,7 +82,6 @@
     .content-quote{
       padding: $paddingDouble;
       flex: 1;
-      background-color: $secondaryLightColor;
       height: 100%;
       flex-direction: column;
       justify-content: space-around;

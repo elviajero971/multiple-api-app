@@ -4,7 +4,7 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <p className="text">
-        {"Please click on a catogery on the menu"}
+        {"Please click on a category on the menu"}
       </p>
     </div>
   );

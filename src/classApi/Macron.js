@@ -2,7 +2,7 @@
 export default class Macron {
   
   constructor() {
-    this.URL = 'http://macronfact.antonin-dev.fr/factjson';
+    this.URL = 'https://macron-fact.antonin-dev.fr/factjson';
   }
 
   getMenuList = async() => {

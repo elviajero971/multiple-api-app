@@ -7,6 +7,9 @@
 .content{
   overflow-y: auto;
   background-color: $secondaryDarkColor;
+  &.viewLightMode{
+    background-color: $primaryLightColor;
+  }
   .scroll{
     height: auto;
     padding: $paddingSimple;

@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from "react";
-import {useLocation} from "react-router-dom";
+import React, {useEffect} from "react";
 import "./ListQuote.scss";
 import Quote from "./quote/Quote";
 import useMyContext from "../../../reducer/MyContext";
+import ClipLoader from "react-spinners/ClipLoader";
 
-const ListQuote = (props) => {
+const ListQuote = ({data, loadingQuote}) => {
   const [reducerState, reducerAction] = useMyContext();
-
   const cardDataArray = reducerState.cardList;
+  
   useEffect(() => {
+
     reducerAction({
       type: "getCardList",
       apiType: reducerState.apiType
@@ -18,7 +19,7 @@ const ListQuote = (props) => {
   const array=[];
   cardDataArray.forEach(value => {
     array.push(
-      <Quote data={value} />
+      <Quote loadingQuote={() => {reducerAction({type: "setLoading", loading: true})}} data={value} />
     );
   });
 

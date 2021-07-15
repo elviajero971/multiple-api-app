@@ -6,8 +6,10 @@
 .footer {
   background-color: $primaryDarkColor;
   height: $footer-height;
+  border-top: none;
   &.viewLightMode{
     background-color: $primaryLightColor;
+    border-top: $doubleBorder;
   }
   .footer-content{
     width: 100%;

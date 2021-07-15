@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from "react";
 import "./Header.scss";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import useMyContext from "../../reducer/MyContext";
 import SwitchDarkMode from "react-switch";
 import moon from "./moon.svg";
 import sun from "./sun.svg";
 import ClipLoader from "react-spinners/ClipLoader";
-import PropagateLoader from "react-spinners/PropagateLoader";
+
 const Header = () => {
-  
+  let location = useLocation()
   const [reducerState, reducerAction] = useMyContext();
 
   const [openBurger, setOpenBurger] = useState(false);
@@ -28,14 +28,15 @@ const Header = () => {
   };
 
   const setbreakingBadApiFunction = () => {
+    console.log("before action", reducerState.loading)
     reducerAction({type: "setApiType", apiType: "breakingbad"});
     reducerAction({type: "setBannerImage", bannerImage: "bb"});
+
   }
 
   const setMacronApiFunction = () => {
     reducerAction({type: "setApiType", apiType: "macron"});
     reducerAction({type: "setBannerImage", bannerImage: "macron"});
-    console.log(reducerState.cardList);
   }
 
   const setLostApiFunction = () => {
@@ -82,7 +83,7 @@ const Header = () => {
               className="item"
               onClick={setMacronApiFunction}
             >
-              <ClipLoader color={`red`}/>
+              {location.pathname === "/macron" && reducerState.loading ? <ClipLoader color={`red`}/> : null }
               <Link to="/macron">
                 {"Macron"}
               </Link>
@@ -97,7 +98,7 @@ const Header = () => {
               className="item"
               onClick={setbreakingBadApiFunction}
             >
-              <ClipLoader color={`red`}/>
+              {location.pathname === "/breakingbad" && reducerState.loading ? <ClipLoader color={`red`}/> : null }
               <Link to="/breakingbad">
                 {"Breaking Bad"}
               </Link>
@@ -111,7 +112,7 @@ const Header = () => {
               className="item"
               onClick={setLostApiFunction}
             >
-              <ClipLoader color={`red`}/>
+              {location.pathname === "/lost" && reducerState.loading ? <ClipLoader color={`red`}/> : null }
               <Link to="/lost">
               {"Lost"}
               </Link>
@@ -125,7 +126,7 @@ const Header = () => {
               className="item"
               onClick={setAmiiboApiFunction}
             >
-              <ClipLoader color={`red`}/>
+              {location.pathname === "/amiibo" && reducerState.loading ? <ClipLoader color={`red`}/> : null }
               <Link to="/amiibo">
               {"Amiibo"}
               </Link>
@@ -134,7 +135,8 @@ const Header = () => {
               Menu Element
             </div>
           </div>
-          <div class="container">
+        </div>
+        <div class="switch">
             <div
               className="item"
             >
@@ -157,11 +159,7 @@ const Header = () => {
                 />
               </div>
             </div>
-            <div className="list-item">
-              Menu Element
-            </div>
           </div>
-        </div>
       </div>
       <div className={openBurger === true ? "mobile active" : "mobile"}>
         <div className="item-mobile" onClick={openAuthorMobileFunction}>
